@@ -1,10 +1,11 @@
-// 3. Combination Sum 1 https://leetcode.com/problems/combination-sum-ii/
+// 3. Combination Sum 2 https://leetcode.com/problems/combination-sum-ii/
 
 import java.util.*;
+
 class Solution {
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         List<List<Integer>> ans = new ArrayList<>();
-        Arrays.sort(candidates); 
+        Arrays.sort(candidates);
         backtrack(candidates, target, 0, new ArrayList<>(), ans);
         return ans;
     }
@@ -16,18 +17,21 @@ class Solution {
         }
 
         for (int i = start; i < arr.length; i++) {
-            if (i > start && arr[i] == arr[i - 1]) continue;
-            if (arr[i] > target) break; 
+            if (i > start && arr[i] == arr[i - 1])
+                continue;
+            if (arr[i] > target)
+                break;
             current.add(arr[i]);
-            backtrack(arr, target - arr[i], i + 1, current, ans); 
-            current.remove(current.size() - 1); 
+            backtrack(arr, target - arr[i], i + 1, current, ans);
+            current.remove(current.size() - 1);
         }
-    }   
-    public static void main(String[] args){
-        Scanner sc =new Scanner (System.in);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int arr[] = new int [n];
-        for(int i=0; i<n; i++){
+        int arr[] = new int[n];
+        for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
         int target = sc.nextInt();
@@ -35,6 +39,10 @@ class Solution {
         List<List<Integer>> ans = s.combinationSum2(arr, target);
         System.out.println(ans);
 
-
     }
 }
+//Time Complexity
+//The time complexity of this algorithm is O(2^t) where t is the target, as in the worst case, we may explore all combinations of numbers that sum up to the target.
+//Space Complexity
+//The space complexity is O(t) for the recursion stack and the current list, where t is the target. 
+// The space used for the answer list can be considered O(k) where k is the number of valid combinations found, but this is not typically included in space complexity analysis as it depends on the output size.
