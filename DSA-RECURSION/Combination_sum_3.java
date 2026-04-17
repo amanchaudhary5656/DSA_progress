@@ -30,3 +30,9 @@ class Solution {
         System.out.println(ans);
     }
 }
+//Time Complexity
+//The time complexity of this algorithm is O(2^k) where k is the number
+//of numbers to be chosen, as in the worst case, we may explore all combinations of numbers from 1 to 9 that sum up to n.
+//Space Complexity  
+//The space complexity is O(k) for the recursion stack and the current list, where k is the number of numbers to be chosen.
+// The space used for the answer list can be considered O(m) where m is the number of valid combinations found, but this is not typically included in space complexity analysis as it depends on the output size.
